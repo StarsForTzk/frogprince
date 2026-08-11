@@ -1,0 +1,9 @@
+body { scroll-behavior: smooth; }
+::-webkit-scrollbar { display: none; }
+.brand-wordmark { font-family: "Noto Serif SC", "Songti SC", serif; letter-spacing: 0.14em; }
+.hero-bg { background: #1c1c1c; isolation: isolate; }
+.hero-slide { position: absolute; inset: 0; z-index: -1; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.2s ease; }
+.hero-slide.is-active { opacity: 1; }
+.hero-slide::after { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(0, 0, 0, .08), rgba(0, 0, 0, .28)); }
+.feature-bg { background-color: #1c1c1c; background-size: cover; background-position: center; }
+@media (max-width: 640px) { .hero-bg, .hero-slide { background-position: 62% center; } .feature-bg { background-position: 56% center; } }
