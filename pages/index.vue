@@ -123,13 +123,7 @@ function changeCollectionImage(direction: number) {
       <div
         class="gsap-brand absolute top-6 left-6 md:top-12 md:left-12 z-10 flex items-center text-paper"
       >
-        <span
-          class="brand-wordmark text-[24px] md:text-[30px] font-semibold leading-none"
-          >青蛙王子</span
-        ><span
-          class="ml-3 border-l border-paper/50 pl-3 text-[10px] md:text-[11px] font-medium tracking-[0.24em]"
-          >童装</span
-        >
+        <img src="/static/pic/logo.png" alt="青蛙王子童装" class="h-auto w-[132px] brightness-0 invert md:w-[176px]" />
       </div>
       <div class="gsap-hero absolute bottom-6 left-6 md:bottom-12 md:left-12">
         <h1
