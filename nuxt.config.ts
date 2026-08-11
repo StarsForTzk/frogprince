@@ -13,7 +13,7 @@ export default defineNuxtConfig({
                 }
             ],
             link: [
-                {rel: 'icon', type: 'image/svg+xml', href: '/static/图标/logo.svg'},
+                {rel: 'icon', type: 'image/svg+xml', href: '/static/ico/logo.svg'},
                 {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
                 {
                     rel: 'stylesheet',

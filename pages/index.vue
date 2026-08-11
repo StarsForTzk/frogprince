@@ -4,19 +4,19 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const slides = [
-  "/static/大屏/2.png",
-  "/static/大屏/1.png",
-  "/static/大屏/3.png",
-  "/static/大屏/4.png",
-  "/static/大屏/5.png",
+  "/static/pic/2.png",
+  "/static/pic/1.png",
+  "/static/pic/3.png",
+  "/static/pic/4.png",
+  "/static/pic/5.png",
 ];
 const activeSlide = ref(0);
 const seasons = [
-  { id: "spring", label: "春", english: "SPRING", title: "A softer beginning.", description: "轻盈、透气与自然色彩，陪孩子走进一段正在发生的春日成长。", color: "#dfe9dc", accent: "#547258", images: ["/static/大屏/1.png", "/static/大屏/3.png"] },
-  { id: "summer", label: "夏", english: "SUMMER", title: "Made for open air.", description: "清爽廓形与轻薄触感，让每一次奔跑都拥有更自由的余地。", color: "#e7eff0", accent: "#3d6970", images: ["/static/大屏/2.png", "/static/大屏/5.png"] },
-  { id: "autumn", label: "秋", english: "AUTUMN", title: "The quiet structure.", description: "层次、纹理和恰到好处的温度，构成秋日衣橱的秩序感。", color: "#eadfd6", accent: "#9a5e43", images: ["/static/大屏/3.png", "/static/大屏/4.png"] },
-  { id: "winter", label: "冬", english: "WINTER", title: "A warm architecture.", description: "以可靠面料和结构设计抵御寒冷，把温暖留在孩子的每一步里。", color: "#dfe3e5", accent: "#495d68", images: ["/static/大屏/4.png", "/static/大屏/1.png"] },
-  { id: "new-year", label: "新年", english: "NEW YEAR", title: "A little more wonder.", description: "喜庆但不喧闹的色彩，记录团聚时刻，也收藏新一年的期待。", color: "#ead8d0", accent: "#a4432f", images: ["/static/大屏/5.png", "/static/大屏/2.png"] },
+  { id: "spring", label: "春", english: "SPRING", title: "A softer beginning.", description: "轻盈、透气与自然色彩，陪孩子走进一段正在发生的春日成长。", color: "#dfe9dc", accent: "#547258", images: ["/static/pic/1.png", "/static/pic/3.png"] },
+  { id: "summer", label: "夏", english: "SUMMER", title: "Made for open air.", description: "清爽廓形与轻薄触感，让每一次奔跑都拥有更自由的余地。", color: "#e7eff0", accent: "#3d6970", images: ["/static/pic/2.png", "/static/pic/5.png"] },
+  { id: "autumn", label: "秋", english: "AUTUMN", title: "The quiet structure.", description: "层次、纹理和恰到好处的温度，构成秋日衣橱的秩序感。", color: "#eadfd6", accent: "#9a5e43", images: ["/static/pic/3.png", "/static/pic/4.png"] },
+  { id: "winter", label: "冬", english: "WINTER", title: "A warm architecture.", description: "以可靠面料和结构设计抵御寒冷，把温暖留在孩子的每一步里。", color: "#dfe3e5", accent: "#495d68", images: ["/static/pic/4.png", "/static/pic/1.png"] },
+  { id: "new-year", label: "新年", english: "NEW YEAR", title: "A little more wonder.", description: "喜庆但不喧闹的色彩，记录团聚时刻，也收藏新一年的期待。", color: "#ead8d0", accent: "#a4432f", images: ["/static/pic/5.png", "/static/pic/2.png"] },
 ];
 const activeSeasonIndex = ref(0);
 const activeCollectionImage = ref(0);
@@ -151,6 +151,17 @@ function changeCollectionImage(direction: number) {
       </div>
     </section>
 
+    <section aria-label="Frog Prince visual film" class="relative h-[72vh] min-h-[520px] max-h-[860px] overflow-hidden bg-char text-paper">
+      <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline preload="metadata" poster="/static/pic/2.png">
+        <source src="/static/video/青蛙26夏季趋势.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-0 bg-black/20" />
+      <div class="relative z-10 flex h-full flex-col justify-end p-6 md:p-12">
+        <span class="mb-3 text-[12px] text-paper/75">Frog Prince — Visual Film</span>
+        <h2 class="max-w-[760px] text-[42px] font-light leading-[0.95] tracking-heading-tight sm:text-[62px]">Designed for<br>everyday wonder.</h2>
+      </div>
+    </section>
+
     <section class="w-full max-w-[1200px] mx-auto px-6 py-20 md:px-8 md:py-32">
       <div class="gsap-fade grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-20">
         <div><span class="mb-3 block text-[12px] text-smoke">01 — The Philosophy</span><h2 class="text-[42px] font-light leading-[1.1] tracking-heading-tight sm:text-[56px] lg:text-heading-lg"><span class="whitespace-nowrap">从孩子的生活，</span><br>开始设计。</h2></div>
@@ -239,7 +250,7 @@ function changeCollectionImage(direction: number) {
                 ><img
                   :alt="social.name"
                   class="h-5 w-auto"
-                  :src="`/static/图标/${social.icon}`"
+                  :src="`/static/ico/${social.icon}`"
               /></a>
             </div>
           </div>
