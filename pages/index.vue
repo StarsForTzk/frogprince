@@ -111,7 +111,7 @@ function changeCollectionImage(direction: number) {
   <div class="bg-paper text-ink font-sans tracking-body-loose antialiased">
     <section
       aria-label="Frog Prince collection highlights"
-      class="relative w-full min-h-[620px] h-screen max-h-[960px] hero-bg flex flex-col justify-between p-6 md:p-12 text-paper"
+      class="hero-section relative w-full h-screen hero-bg flex flex-col justify-between p-6 md:p-12 text-paper"
     >
       <div
         v-for="(slide, index) in slides"
@@ -134,7 +134,7 @@ function changeCollectionImage(direction: number) {
       </div>
       <div
         aria-label="Hero slides"
-        class="absolute bottom-6 right-6 md:bottom-12 md:right-12 flex gap-2"
+        class="hero-pagination absolute bottom-6 right-6 md:bottom-12 md:right-12 flex gap-2"
       >
         <span
           v-for="(_, index) in slides"
