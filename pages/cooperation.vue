@@ -3,6 +3,8 @@ useHead({
   title: "商业合作 | 青蛙王子童装",
   meta: [{ name: "description", content: "青蛙王子童装商业合作页面，了解品牌渠道规模、产品能力与合作方向。" }],
 })
+const {url: assetUrl} = await useWebsiteAssets('cooperation')
+const heroImage = computed(() => `url('${assetUrl('hero', '/static/pic/3.png')}')`)
 
 const capabilities = [
   { title: "商品研发", text: "深耕35年儿童服饰领域，围绕重点品类、面料优化和儿童多场景需求持续开发产品。" },
@@ -24,6 +26,6 @@ const directions = ["品牌门店与渠道合作", "线上平台与内容合作"
 </template>
 
 <style scoped>
-.cooperation-hero { isolation: isolate; background: url('/static/pic/3.png') center / cover no-repeat; }
+.cooperation-hero { isolation: isolate; background: v-bind(heroImage) center / cover no-repeat; }
 .cooperation-hero::after { position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgb(0 0 0 / 8%), rgb(0 0 0 / 56%)); content: ''; }
 </style>

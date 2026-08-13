@@ -7,6 +7,7 @@ useHead({
   title: "品牌诠释 | 青蛙王子童装",
   meta: [{name: "description", content: "青蛙王子支持儿童志向成长，释放孩子爱玩天性，传递潮范生活美学。"}],
 })
+const {url: assetUrl} = await useWebsiteAssets('brand')
 
 const values = [
   {
@@ -78,6 +79,7 @@ onUnmounted(() => animationContext?.revert())
 
     <section
         class="brand-hero relative flex h-[88vh] min-h-[660px] max-h-[940px] w-full flex-col justify-between overflow-hidden p-6 text-paper md:p-12">
+      <div class="absolute inset-0 bg-cover bg-center" :style="{backgroundImage: `url('${assetUrl('hero', '/static/pic/4.png')}')`}" />
       <NuxtLink class="brand-mark relative z-10 inline-flex w-fit" to="/">
         <img alt="青蛙王子童装" class="h-auto w-[132px] brightness-0 invert md:w-[176px]" src="/static/pic/logo.png">
       </NuxtLink>
@@ -112,7 +114,7 @@ onUnmounted(() => animationContext?.revert())
 
     <section class="bg-char text-paper">
       <div class="mx-auto grid min-h-[760px] max-w-[1440px] lg:grid-cols-[1.05fr_0.95fr]">
-        <div class="brand-designer-image min-h-[500px] lg:min-h-full"/>
+        <div class="brand-designer-image min-h-[500px] bg-cover bg-center lg:min-h-full" :style="{backgroundImage: `url('${assetUrl('designer', '/static/pic/2.png')}')`}"/>
         <div class="brand-fade flex flex-col justify-center px-6 py-20 md:px-16 lg:px-20 lg:py-24"><span
             class="mb-3 block text-[12px] text-paper/50">02 — Design Leadership</span>
           <h2 class="text-heading-lg font-light tracking-heading-tight">设计，始于对儿童<br>真实生活的理解。</h2>
@@ -167,7 +169,7 @@ onUnmounted(() => animationContext?.revert())
 <style scoped>
 .brand-hero {
   isolation: isolate;
-  background: url("/static/pic/4.png") center 44% / cover no-repeat;
+  background: #222;
 }
 
 .brand-hero::after {
@@ -176,10 +178,6 @@ onUnmounted(() => animationContext?.revert())
   z-index: 0;
   background: linear-gradient(180deg, rgb(0 0 0 / 8%), rgb(0 0 0 / 50%));
   content: "";
-}
-
-.brand-designer-image {
-  background: url("/static/pic/2.png") center / cover no-repeat;
 }
 
 @media (max-width: 640px) {

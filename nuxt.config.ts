@@ -3,6 +3,9 @@ export default defineNuxtConfig({
     devtools: {enabled: true},
     modules: ['@nuxtjs/tailwindcss'],
     css: ['~/assets/css/main.css'],
+    runtimeConfig: {
+        websiteApiBase: 'https://daily.frogbi.com'
+    },
     app: {
         head: {
             htmlAttrs: {

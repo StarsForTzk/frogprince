@@ -3,6 +3,8 @@ useHead({
   title: "面料科技 | 青蛙王子童装",
   meta: [{ name: "description", content: "了解青蛙王子童装对天然、环保、舒适面料及防油、防水、防风功能科技的产品实践。" }],
 })
+const {url: assetUrl} = await useWebsiteAssets('technology')
+const practiceImage = computed(() => `url('${assetUrl('practice', '/static/pic/5.png')}')`)
 
 const functions = [
   { number: "01", title: "防油", english: "OIL REPELLENT", text: "面向儿童真实日常，降低常见油渍对衣物表面的影响，让清洁与打理更从容。" },
@@ -16,6 +18,7 @@ const research = ["重点品类面料优化", "羽绒服轻量化研发", "三�
   <main class="bg-paper font-sans text-ink antialiased">
     <NuxtLink aria-label="返回首页" class="fixed right-5 top-5 z-50 flex items-center gap-3 rounded-badge bg-char px-4 py-3 text-paper md:right-8 md:top-8" to="/"><span class="text-[12px]">HOME</span><span>←</span></NuxtLink>
     <section class="technology-hero relative flex h-[82vh] min-h-[620px] max-h-[900px] flex-col justify-between overflow-hidden p-6 text-paper md:p-12">
+      <div class="absolute inset-0 bg-cover bg-center" :style="{backgroundImage: `url('${assetUrl('hero', '/static/pic/2.png')}')`}" />
       <NuxtLink class="relative z-10 inline-flex w-fit" to="/"><img alt="青蛙王子童装" class="h-auto w-[132px] brightness-0 invert md:w-[176px]" src="/static/pic/logo.png"></NuxtLink>
       <div class="relative z-10"><p class="mb-4 text-[12px] text-paper/75">Dr. Frog — Fabric & Function</p><h1 class="text-[54px] font-light uppercase leading-[0.88] sm:text-[82px] lg:text-[112px]">Built For<br>Real Life</h1></div>
     </section>
@@ -30,6 +33,7 @@ const research = ["重点品类面料优化", "羽绒服轻量化研发", "三�
 </template>
 
 <style scoped>
-.technology-hero { isolation: isolate; background: url('/static/pic/2.png') center / cover no-repeat; }
+.technology-hero { isolation: isolate; background: #222; }
+.technology-hero + section + section + section > div:first-child { background-image: v-bind(practiceImage); }
 .technology-hero::after { position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgb(0 0 0 / 8%), rgb(0 0 0 / 55%)); content: ''; }
 </style>

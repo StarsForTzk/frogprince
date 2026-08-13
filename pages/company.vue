@@ -12,6 +12,7 @@ useHead({
     }
   ]
 })
+const {url: assetUrl} = await useWebsiteAssets('company')
 
 const milestones = [
   {year: '1991', title: '从制造出发', text: '上海蛙品儿童用品有限公司前身东方制衣厂成立，产品随后出口东南亚。'},
@@ -69,6 +70,7 @@ onUnmounted(() => animationContext?.revert())
 
     <section
         class="company-hero relative flex h-[82vh] min-h-[620px] max-h-[880px] w-full flex-col justify-between overflow-hidden p-6 text-paper md:p-12">
+      <div class="absolute inset-0 bg-cover bg-center" :style="{backgroundImage: `url('${assetUrl('hero', '/static/pic/3.png')}')`}" />
       <NuxtLink class="company-brand relative z-10 inline-flex w-fit" to="/">
         <img alt="青蛙王子童装" class="h-auto w-[132px] brightness-0 invert md:w-[176px]" src="/static/pic/logo.png">
       </NuxtLink>
@@ -107,7 +109,7 @@ onUnmounted(() => animationContext?.revert())
 
     <section id="journey" class="bg-char text-paper">
       <div class="mx-auto grid max-w-[1440px] lg:grid-cols-[0.8fr_1.2fr]">
-        <div class="company-history-image min-h-[480px] lg:min-h-full"/>
+        <div class="company-history-image min-h-[480px] bg-cover bg-center lg:min-h-full" :style="{backgroundImage: `url('${assetUrl('history', '/static/pic/5.png')}')`}"/>
         <div class="company-fade px-6 py-20 md:px-16 lg:px-20 lg:py-24">
           <span class="mb-3 block text-[12px] text-paper/50">02 — Our Journey</span>
           <h2 class="mb-14 text-heading-lg font-light tracking-heading-tight">一段持续生长的<br>品牌旅程。</h2>
@@ -152,7 +154,7 @@ onUnmounted(() => animationContext?.revert())
 <style scoped>
 .company-hero {
   isolation: isolate;
-  background: url('/static/pic/3.png') center 42% / cover no-repeat;
+  background: #222;
 }
 
 .company-hero::after {
@@ -161,10 +163,6 @@ onUnmounted(() => animationContext?.revert())
   z-index: 0;
   background: linear-gradient(180deg, rgb(0 0 0 / 10%), rgb(0 0 0 / 48%));
   content: '';
-}
-
-.company-history-image {
-  background: url('/static/pic/5.png') center / cover no-repeat;
 }
 
 @media (max-width: 640px) {

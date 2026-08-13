@@ -3,6 +3,9 @@ useHead({
   title: "渠道门店 | 青蛙王子童装",
   meta: [{ name: "description", content: "青蛙王子童装覆盖全国28个省份、拥有1200多家门店，以多渠道布局服务各地消费者。" }],
 })
+const {url: assetUrl} = await useWebsiteAssets('stores')
+const heroImage = computed(() => `url('${assetUrl('hero', '/static/pic/3.png')}')`)
+const galleryImage = computed(() => `url('${assetUrl('gallery', '/static/pic/3.png')}')`)
 
 const channels = [
   { title: "购物中心", names: "万达、新城吾悦、爱琴海、龙湖天街、大悦城、万象汇等" },
@@ -27,6 +30,7 @@ const storeFormats = ["街铺", "购物中心", "百货", "商超", "奥特莱�
 </template>
 
 <style scoped>
-.stores-hero { isolation: isolate; background: url('/static/pic/3.png') center 42% / cover no-repeat; }
+.stores-hero { isolation: isolate; background: v-bind(heroImage) center 42% / cover no-repeat; }
+.stores-hero + section + section + section + section > div:first-child { background-image: v-bind(galleryImage); }
 .stores-hero::after { position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgb(0 0 0 / 8%), rgb(0 0 0 / 55%)); content: ''; }
 </style>

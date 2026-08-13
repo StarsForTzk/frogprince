@@ -3,6 +3,9 @@ useHead({
   title: "品牌 IP 波克克 | 青蛙王子童装",
   meta: [{ name: "description", content: "认识青蛙王子品牌 IP 波克克：来自波西克亚星球的追梦美学家，传递纯真童趣与范感生活。" }],
 })
+const {url: assetUrl} = await useWebsiteAssets('ip')
+const heroImage = computed(() => `url('${assetUrl('hero', '/static/pic/4.png')}')`)
+const characterImage = computed(() => `url('${assetUrl('character', '/static/pic/1.png')}')`)
 
 const traits = ["猎奇思维", "勇于探索", "坚持创新", "热爱生活"]
 const skills = ["音乐", "美术", "足球"]
@@ -20,6 +23,7 @@ const skills = ["音乐", "美术", "足球"]
 </template>
 
 <style scoped>
-.ip-hero { isolation: isolate; background: url('/static/pic/4.png') center / cover no-repeat; }
+.ip-hero { isolation: isolate; background: v-bind(heroImage) center / cover no-repeat; }
+.ip-hero + section + section > div > div:first-child { background-image: v-bind(characterImage); }
 .ip-hero::after { position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgb(0 0 0 / 8%), rgb(0 0 0 / 56%)); content: ''; }
 </style>

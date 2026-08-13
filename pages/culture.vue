@@ -7,6 +7,7 @@ useHead({
   title: "企业文化 | 青蛙王子童装",
   meta: [{name: "description", content: "青蛙王子企业文化：秉承初心与责任，创民族品牌，树百年基业。"}],
 })
+const {url: assetUrl} = await useWebsiteAssets('culture')
 
 const cultureSections = [
   {
@@ -57,6 +58,7 @@ onUnmounted(() => animationContext?.revert())
 
     <section
         class="culture-hero relative flex h-[82vh] min-h-[620px] max-h-[900px] w-full flex-col justify-between overflow-hidden p-6 text-paper md:p-12">
+      <div class="absolute inset-0 bg-cover bg-center" :style="{backgroundImage: `url('${assetUrl('hero', '/static/pic/5.png')}')`}" />
       <NuxtLink class="culture-mark relative z-10 inline-flex w-fit" to="/">
         <img alt="青蛙王子童装" class="h-auto w-[132px] brightness-0 invert md:w-[176px]" src="/static/pic/logo.png">
       </NuxtLink>
@@ -131,7 +133,7 @@ onUnmounted(() => animationContext?.revert())
 <style scoped>
 .culture-hero {
   isolation: isolate;
-  background: url("/static/pic/5.png") center 45% / cover no-repeat;
+  background: #222;
 }
 
 .culture-hero::after {

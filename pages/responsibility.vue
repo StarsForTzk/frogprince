@@ -3,6 +3,9 @@ useHead({
   title: "品牌行动 | 青蛙王子童装",
   meta: [{ name: "description", content: "青蛙王子通过儿童才艺舞台、公益行动、时尚发布及跨界联名，看见儿童天赋，支持儿童志向成长。" }],
 })
+const {url: assetUrl} = await useWebsiteAssets('responsibility')
+const heroImage = computed(() => `url('${assetUrl('hero', '/static/pic/5.png')}')`)
+const activityImage = computed(() => `url('${assetUrl('activity', '/static/pic/1.png')}')`)
 
 const actions = [
   { year: "2015", title: "中国好宝贝", text: "青蛙王子在行业首创儿童才艺大赛，已连续举办六届，为全国儿童提供展示才艺与表达自我的舞台。" },
@@ -31,6 +34,7 @@ const mediaChannels = ["微信", "小红书", "抖音", "微博", "头条"]
 </template>
 
 <style scoped>
-.action-hero { isolation: isolate; background: url('/static/pic/5.png') center 44% / cover no-repeat; }
+.action-hero { isolation: isolate; background: v-bind(heroImage) center 44% / cover no-repeat; }
+.action-hero + section + section + section + section > div:first-child { background-image: v-bind(activityImage); }
 .action-hero::after { position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgb(0 0 0 / 8%), rgb(0 0 0 / 58%)); content: ''; }
 </style>
