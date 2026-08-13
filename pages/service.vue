@@ -42,7 +42,7 @@ onUnmounted(() => animationContext?.revert())
   <main class="bg-paper text-ink font-sans tracking-body-loose antialiased">
     <header class="border-b border-mist px-6 py-6 md:px-12 md:py-8">
       <div class="service-nav mx-auto flex max-w-[1200px] items-center justify-between gap-6">
-        <NuxtLink to="/" class="brand-wordmark text-[20px] font-semibold md:text-[24px]">青蛙王子</NuxtLink>
+        <NuxtLink class="inline-flex" to="/"><img alt="青蛙王子童装" class="h-auto w-[132px] md:w-[176px]" src="/static/pic/logo.png"></NuxtLink>
         <NuxtLink to="/" class="inline-flex items-center gap-2 text-[13px] text-pewter transition-colors hover:text-ember"><span aria-hidden="true">←</span> 返回首页</NuxtLink>
       </div>
     </header>

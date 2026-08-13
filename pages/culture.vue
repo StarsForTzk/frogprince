@@ -57,10 +57,9 @@ onUnmounted(() => animationContext?.revert())
 
     <section
         class="culture-hero relative flex h-[82vh] min-h-[620px] max-h-[900px] w-full flex-col justify-between overflow-hidden p-6 text-paper md:p-12">
-      <div class="culture-mark relative z-10 flex items-center"><span
-          class="brand-wordmark text-[24px] font-semibold leading-none md:text-[30px]">青蛙王子</span><span
-          class="ml-3 border-l border-paper/50 pl-3 text-[10px] font-medium tracking-[0.24em] md:text-[11px]">童装</span>
-      </div>
+      <NuxtLink class="culture-mark relative z-10 inline-flex w-fit" to="/">
+        <img alt="青蛙王子童装" class="h-auto w-[132px] brightness-0 invert md:w-[176px]" src="/static/pic/logo.png">
+      </NuxtLink>
       <div class="culture-title relative z-10 max-w-[1050px]"><p class="mb-5 text-[12px] text-paper/75">Frog Family —
         Culture &amp; Spirit</p>
         <h1 class="text-[52px] font-light uppercase leading-[0.88] tracking-heading-tight sm:text-[82px] lg:text-[116px]">

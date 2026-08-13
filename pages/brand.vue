@@ -5,31 +5,47 @@ import {ScrollTrigger} from "gsap/ScrollTrigger"
 
 useHead({
   title: "品牌诠释 | 青蛙王子童装",
-  meta: [{name: "description", content: "青蛙王子以有温度的儿童时装为品牌理念，表达自然、时尚与价值感。"}],
+  meta: [{name: "description", content: "青蛙王子支持儿童志向成长，释放孩子爱玩天性，传递潮范生活美学。"}],
 })
 
 const values = [
   {
     index: "01",
-    title: "自然",
-    english: "NATURAL",
-    text: "尊重儿童真实的成长状态，让面料、色彩与廓形回到舒适、自在和充满生命力的日常。"
+    title: "专业",
+    english: "PROFESSIONAL",
+    text: "深耕儿童服饰领域，以儿童真实需求为起点，将设计、面料与穿着体验落实到每一件产品。"
   },
   {
     index: "02",
-    title: "时尚",
-    english: "FASHION",
-    text: "从全球趋势中汲取灵感，用适合儿童的设计语言重新表达，让每一次穿着都自然地回应当下。"
+    title: "范感",
+    english: "STYLE",
+    text: "以简约时尚和轻奢感表达儿童多元生活方式，让孩子阳光、自信地展现自己的态度。"
   },
   {
     index: "03",
-    title: "价值感",
-    english: "VALUE",
-    text: "在设计、品质与日常价格之间寻找平衡，让值得被看见的儿童时装进入更多中国家庭。"
+    title: "好体验",
+    english: "EXPERIENCE",
+    text: "以舒适产品体验和有温度的终端服务，回应儿童在校园、户外、社交与居家等多场景需求。"
   },
+  {
+    index: "04",
+    title: "高性价比",
+    english: "VALUE",
+    text: "在品质、设计与日常价格之间取得平衡，让可靠的儿童时尚产品进入更多中国家庭。"
+  }
 ]
-const cities = ["MILAN", "PARIS", "NEW YORK", "LONDON", "SEOUL"]
-const honors = ["十佳童装设计师", "南中国时尚杰出贡献奖", "中国十佳童装设计奖", "最佳时尚童装设计品牌"]
+const honors = [
+  {year: "2003 / 2005", title: "中国市场知名品牌产品"},
+  {year: "2013 / 2021 / 2022", title: "中国十大童装品牌"},
+  {year: "2022", title: "年度购物中心新锐品牌"},
+  {year: "累计 100+", title: "品牌与设计类奖项"},
+  {year: "设计团队", title: "中国十佳童装设计师 / 中国十佳童装设计奖 / 最佳时尚童装设计品牌"}
+]
+const globalPartners = [
+  {name: "CATHERINE", role: "国际童装创意交流", text: "与品牌团队交流流行趋势和儿童产品美学。"},
+  {name: "FRANCOISE", role: "品牌系统指导", text: "围绕品牌系统、设计美学与品牌力升级提供专业交流。"},
+  {name: "IVY", role: "商品与供应链", text: "围绕商品体系和供应链系统升级展开合作。"}
+]
 let animationContext: gsap.Context | undefined
 
 onMounted(() => {
@@ -62,24 +78,23 @@ onUnmounted(() => animationContext?.revert())
 
     <section
         class="brand-hero relative flex h-[88vh] min-h-[660px] max-h-[940px] w-full flex-col justify-between overflow-hidden p-6 text-paper md:p-12">
-      <div class="brand-mark relative z-10 flex items-center"><span
-          class="brand-wordmark text-[24px] font-semibold leading-none md:text-[30px]">青蛙王子</span><span
-          class="ml-3 border-l border-paper/50 pl-3 text-[10px] font-medium tracking-[0.24em] md:text-[11px]">童装</span>
-      </div>
+      <NuxtLink class="brand-mark relative z-10 inline-flex w-fit" to="/">
+        <img alt="青蛙王子童装" class="h-auto w-[132px] brightness-0 invert md:w-[176px]" src="/static/pic/logo.png">
+      </NuxtLink>
       <div class="brand-hero-title relative z-10 max-w-[1100px]"><p class="mb-5 text-[12px] text-paper/75">Brand
         Philosophy — 1991 / Present</p>
         <h1 class="text-[50px] font-light uppercase leading-[0.9] tracking-heading-tight sm:text-[76px] lg:text-[106px]">
-          Natural.<br>Fashion. Value.</h1></div>
+          Style.<br>Experience. Value.</h1></div>
     </section>
 
     <section class="mx-auto w-full max-w-[1200px] px-6 py-20 md:px-8 md:py-32">
       <div class="brand-fade grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-24">
         <div><span class="mb-3 block text-[12px] text-smoke">01 — Brand Belief</span>
-          <h2 class="text-heading-lg font-light tracking-heading-tight">有温度的<br>儿童时装。</h2></div>
+          <h2 class="text-heading-lg font-light tracking-heading-tight">支持志向成长，<br>释放爱玩天性。</h2></div>
         <div class="max-w-[680px] pt-1"><p class="font-serif text-[26px] leading-[1.5] text-pewter md:text-[32px]">
-          “衣服不只是孩子日常生活的陪伴，也应当承载舒适、审美与成长的温度。”</p>
+          “支持儿童志向成长，释放孩子爱玩天性，传递潮范生活美学。”</p>
           <p class="mt-10 max-w-[610px] text-[15px] leading-[1.8]">
-            青蛙王子以“有温度的儿童时装”为品牌理念。自然，是对成长天性的尊重；时尚，是对当代审美的回应；价值感，则让好的设计与品质被更多家庭真实拥有。</p>
+            青蛙王子以消费者为核心，聚焦儿童简约时尚、轻奢感与高质性价比产品，基于穿搭服务与传播，打造全岁段、多品类儿童潮范生活方式品牌。</p>
         </div>
       </div>
     </section>
@@ -103,11 +118,11 @@ onUnmounted(() => animationContext?.revert())
           <h2 class="text-heading-lg font-light tracking-heading-tight">设计，始于对儿童<br>真实生活的理解。</h2>
           <p class="mt-10 max-w-[520px] text-[15px] leading-[1.8] text-paper/70">
             品牌由董事长邓庆云先生主笔设计。他是中国首位集四项童装设计与时尚荣誉于一身的设计者，以长期的专业积累持续塑造青蛙王子的设计表达。</p>
-          <div class="mt-12">
-            <div v-for="(honor, index) in honors" :key="honor"
-                 class="grid grid-cols-[38px_1fr] border-t border-paper/20 py-5"><span
-                class="text-[11px] text-paper/40">0{{ index + 1 }}</span><span
-                class="text-[14px] text-paper/85">{{ honor }}</span></div>
+          <div id="honors" class="mt-12 scroll-mt-8">
+            <div v-for="honor in honors" :key="honor.year + honor.title"
+                 class="grid grid-cols-[120px_1fr] gap-4 border-t border-paper/20 py-5"><span
+                class="text-[11px] text-paper/40">{{ honor.year }}</span><span
+                class="text-[14px] text-paper/85">{{ honor.title }}</span></div>
           </div>
         </div>
       </div>
@@ -122,20 +137,17 @@ onUnmounted(() => animationContext?.revert())
             自1991年创立以来，青蛙王子始终与国际流行趋势接轨，与全球多家时尚趋势预测机构深度交流合作，定期组织团队前往国际时尚之都交流学习，将最新的时尚流行元素带给中国儿童。</p>
         </div>
       </div>
-      <div class="brand-fade mt-20 border-y border-mist">
-        <div v-for="(city, index) in cities" :key="city" class="border-b border-mist last:border-b-0">
-          <div class="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-6 md:px-8"><span
-              class="text-[11px] text-smoke">0{{ index + 1 }}</span><strong
-              class="text-[25px] font-light tracking-heading-tight sm:text-[32px]">{{ city }}</strong><span
-              aria-hidden="true" class="text-[16px] text-ember">→</span></div>
-        </div>
+      <div class="brand-fade mx-auto mt-20 grid max-w-[1200px] border-y border-mist md:grid-cols-3">
+        <article v-for="partner in globalPartners" :key="partner.name" class="border-b border-mist p-7 md:min-h-[260px] md:border-b-0 md:border-l">
+          <span class="text-[11px] text-smoke">{{ partner.role }}</span><h3 class="mt-8 text-[28px] font-light">{{ partner.name }}</h3><p class="mt-5 text-[14px] leading-[1.75] text-pewter">{{ partner.text }}</p>
+        </article>
       </div>
     </section>
 
     <section class="brand-fade mx-auto w-full max-w-[1200px] px-6 pb-20 md:px-8 md:pb-32">
       <div class="bg-mist p-8 md:p-14"><span class="mb-3 block text-[12px] text-smoke">Our Expression</span>
         <h2 class="max-w-[900px] text-heading font-light tracking-heading-tight md:text-[48px]">
-          让自然成为底色，让时尚回应时代，让价值感陪伴每一次成长。</h2>
+          专业、范感、好体验、高性价比，让潮范生活陪伴每一次成长。</h2>
         <NuxtLink class="mt-10 inline-flex items-center gap-2 text-[15px] text-ember transition-opacity hover:opacity-70"
                   to="/">
           返回首页 <span class="text-[16px]">→</span></NuxtLink>

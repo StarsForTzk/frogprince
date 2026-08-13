@@ -14,16 +14,23 @@ useHead({
 })
 
 const milestones = [
-  {year: '1991', title: '品牌创立', text: '创始于中国四大童装名镇之一的佛山，从童装产业腹地出发。'},
-  {year: '2018', title: '焕新启程', text: '获得安正时尚集团注资，品牌运营中心迁至上海，注册上海蛙品儿童用品有限公司。'},
-  {year: 'TODAY', title: '持续生长', text: '以国际化视野拓展全国市场，向儿童平价时装引领者稳步迈进。'}
+  {year: '1991', title: '从制造出发', text: '上海蛙品儿童用品有限公司前身东方制衣厂成立，产品随后出口东南亚。'},
+  {year: '1990s', title: '品牌进入市场', text: '注册青蛙王子、青蛙皇子品牌，开设首家品牌专卖店，产品覆盖中国内地。'},
+  {year: '2000s', title: '设计与规模并进', text: '青蛙皇子工业园落成，品牌登陆中国国际时装周，并获得童装设计与行业品牌荣誉。'},
+  {year: '2013', title: '中国十大童装品牌', text: '获得中国服装行业协会颁发的中国十大童装品牌称号，并连续三届蝉联。'},
+  {year: '2015', title: '中国好宝贝', text: '与金鹰卡通共同打造儿童才艺大赛，连续举办六届，为儿童提供展示舞台。'},
+  {year: '2018', title: '品牌焕新', text: '获得安正时尚集团注资，运营中心迁至上海，注册上海蛙品儿童用品有限公司。'},
+  {year: '2021', title: '重新定义品牌价值', text: '以儿童多元生活方式为方向，升级品牌与产品价值内涵。'},
+  {year: '2022', title: '构建品牌新势能', text: '提出范感生活价值主张，加大高性价比、高质量简约时尚产品研发。'},
+  {year: '2023', title: '线上渠道升级', text: '成立线上业务子公司，整合渠道资源，并推出聚焦场景与消费需求的体验店。'},
+  {year: 'TODAY', title: '全岁段、多品类', text: '持续建设儿童潮范生活方式品牌，陪伴0至14岁儿童成长。'}
 ]
 
 const figures = [
   {value: '1991', label: '品牌创立'},
-  {value: '300–400', label: '每年新增店铺'},
-  {value: 'TOP 3', label: '中国十大童装品牌市场占有率'},
-  {value: '全国', label: '覆盖多级城市商业网络'}
+  {value: '1200+', label: '全国门店'},
+  {value: '28', label: '覆盖省份'},
+  {value: '80万+', label: '会员规模'}
 ]
 
 let animationContext: gsap.Context | undefined
@@ -62,11 +69,9 @@ onUnmounted(() => animationContext?.revert())
 
     <section
         class="company-hero relative flex h-[82vh] min-h-[620px] max-h-[880px] w-full flex-col justify-between overflow-hidden p-6 text-paper md:p-12">
-      <div class="company-brand relative z-10 flex items-center">
-        <span class="brand-wordmark text-[24px] font-semibold leading-none md:text-[30px]">青蛙王子</span>
-        <span
-            class="ml-3 border-l border-paper/50 pl-3 text-[10px] font-medium tracking-[0.24em] md:text-[11px]">童装</span>
-      </div>
+      <NuxtLink class="company-brand relative z-10 inline-flex w-fit" to="/">
+        <img alt="青蛙王子童装" class="h-auto w-[132px] brightness-0 invert md:w-[176px]" src="/static/pic/logo.png">
+      </NuxtLink>
       <div class="company-title relative z-10 max-w-[1050px]">
         <p class="mb-4 text-[12px] text-paper/75">Frog Family — Company Profile</p>
         <h1 class="text-[56px] font-light uppercase leading-[0.88] tracking-heading-tight sm:text-[80px] lg:text-[112px]">
@@ -85,7 +90,7 @@ onUnmounted(() => animationContext?.revert())
           <p>中国新一线品牌、中国十大童装品牌——青蛙王子（FROG
             PRINCE），创立于1991年，创始地位于中国四大童装名镇之一——佛山；2018年，获得知名上市服装企业安正时尚集团注资，并将品牌运营中心迁至上海，注册“上海蛙品儿童用品有限公司”，以国际化视野开创未来。</p>
           <p>
-            致力于成为儿童平价时装引领者的青蛙王子，以每年新增300–400家店铺的速度拓展渠道规模，迅速占领城市商业要地，身影遍布北上广深一线城市及各大、中、小型城市，市场占有率稳居“中国十大童装品牌”前三名。</p>
+            青蛙王子持续拓展全国渠道，门店覆盖28个省份，总数超过1200家，形成由街铺、购物中心、百货、商超与奥特莱斯共同组成的多层次商业网络。</p>
           <p class="border-l border-ember pl-5 font-serif text-[18px] italic leading-[1.55] text-pewter">
             让好设计进入更多家庭，让孩子在自在穿着中探索每天的新鲜世界。</p>
         </div>
@@ -100,10 +105,10 @@ onUnmounted(() => animationContext?.revert())
       </div>
     </section>
 
-    <section class="bg-char text-paper">
-      <div class="mx-auto grid min-h-[720px] max-w-[1440px] lg:grid-cols-2">
+    <section id="journey" class="bg-char text-paper">
+      <div class="mx-auto grid max-w-[1440px] lg:grid-cols-[0.8fr_1.2fr]">
         <div class="company-history-image min-h-[480px] lg:min-h-full"/>
-        <div class="company-fade flex flex-col justify-center px-6 py-20 md:px-16 lg:px-20 lg:py-24">
+        <div class="company-fade px-6 py-20 md:px-16 lg:px-20 lg:py-24">
           <span class="mb-3 block text-[12px] text-paper/50">02 — Our Journey</span>
           <h2 class="mb-14 text-heading-lg font-light tracking-heading-tight">一段持续生长的<br>品牌旅程。</h2>
           <div>

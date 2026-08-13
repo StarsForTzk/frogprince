@@ -25,32 +25,51 @@ const footerGroups = [
   {
     title: "Frog Family",
     links: [
-      "公司简介",
-      "品牌诠释",
-      "成长历程",
-      "荣誉称号",
-      "企业文化",
-      "社会责任",
-      "联系我们",
+      { label: "公司简介", to: "/company" },
+      { label: "品牌诠释", to: "/brand" },
+      { label: "成长历程", to: "/company#journey" },
+      { label: "品牌荣誉", to: "/brand#honors" },
+      { label: "品牌 IP 波克克", to: "/ip" },
+      { label: "企业文化", to: "/culture" },
+      { label: "联系我们", to: "/#contact" },
+    ],
+  },
+  {
+    title: "Products",
+    links: [
+      { label: "全龄产品", to: "/products" },
+      { label: "婴童 BABY", to: "/products#baby" },
+      { label: "幼小童 KIDS", to: "/products#kids" },
+      { label: "中大童 YOUNG", to: "/products#young" },
+      { label: "鞋品与配饰", to: "/products#more" },
     ],
   },
   {
     title: "Frog Service",
-    links: ["会员活动", "会员权益", "售后服务", "服务热线"],
+    links: [
+      { label: "售后服务", to: "/service" },
+      { label: "退换货说明", to: "/service#return" },
+      { label: "服务热线", to: "/service" },
+    ],
   },
-  { title: "Dr.Frog", links: ["面料宝典", "穿衣搭配", "育儿心经"] },
   {
-    title: "Recruitment",
-    links: ["招聘信息", "学习成长", "职业通道", "薪酬福利", "办公环境"],
+    title: "Explore",
+    links: [
+      { label: "面料科技", to: "/technology" },
+      { label: "品牌行动", to: "/responsibility" },
+      { label: "渠道门店", to: "/stores" },
+      { label: "商业合作", to: "/cooperation" },
+    ],
   },
-  { title: "E-Shop", links: ["唯品会", "天猫商城"] },
+  {
+    title: "E-Shop",
+    links: [
+      { label: "天猫商城", to: "https://qingwawangzimy.tmall.com/", external: true },
+      { label: "小红书", to: "https://www.xiaohongshu.com/user/profile/5e1d19460000000001006b2e", external: true },
+      { label: "抖音", to: "https://www.douyin.com/user/MS4wLjABAAAA0mj05YKeKaqxfXQ0b_KawUM9Z2T6AhkSpNiAOKc0E8g", external: true },
+    ],
+  },
 ];
-const footerRoutes: Record<string, string> = {
-  公司简介: "/company",
-  品牌诠释: "/brand",
-  企业文化: "/culture",
-  售后服务: "/service",
-};
 let timer: ReturnType<typeof window.setInterval> | undefined;
 let collectionTimer: ReturnType<typeof window.setInterval> | undefined;
 let animationContext: gsap.Context | undefined;
@@ -177,6 +196,7 @@ function changeCollectionImage(direction: number) {
     </section>
 
     <section
+      id="contact"
       aria-label="Site navigation"
       class="border-t border-mist bg-paper px-6 py-12 md:px-12 md:py-16"
     >
@@ -259,13 +279,20 @@ function changeCollectionImage(direction: number) {
             :aria-label="group.title"
             class="flex flex-col items-start gap-4 text-[14px] leading-[1.35] text-pewter"
           >
-          <NuxtLink
-            v-for="link in group.links"
-            :key="link"
-            class="hover:text-ember transition-colors"
-            :to="footerRoutes[link] ?? '#'"
-            >{{ link }}</NuxtLink
-          >
+            <template v-for="link in group.links" :key="link.label">
+              <a
+                v-if="link.external"
+                class="hover:text-ember transition-colors"
+                :href="link.to"
+                target="_blank"
+                rel="noopener noreferrer"
+              >{{ link.label }}</a>
+              <NuxtLink
+                v-else
+                class="hover:text-ember transition-colors"
+                :to="link.to"
+              >{{ link.label }}</NuxtLink>
+            </template>
           </nav>
         </div>
       </div>
