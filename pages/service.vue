@@ -65,7 +65,7 @@ onUnmounted(() => animationContext?.revert())
 
     <section class="border-t border-mist bg-mist/50 px-6 py-12 md:px-8 md:py-16"><div class="service-fade mx-auto flex max-w-[1200px] flex-col gap-4 text-[14px] leading-[1.7] text-pewter md:flex-row md:items-start md:justify-between"><p>本规定适用于全国青蛙王子童装实体店铺。</p><p class="md:text-right">可凭原购物小票至全国青蛙王子童装店铺直接进行更换。</p></div></section>
 
-    <footer class="border-t border-mist bg-char px-6 py-6 text-paper md:px-12"><div class="mx-auto flex max-w-[1200px] items-center justify-between gap-4 text-[11px] leading-none text-paper/55 sm:text-[12px]"><p class="whitespace-nowrap">Copyright © 2026 青蛙王子童装 FrogPrince All Rights Reserved</p><a class="whitespace-nowrap transition-colors hover:text-paper" href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">沪ICP备20007378号-1</a></div></footer>
+    <footer class="border-t border-mist bg-char px-6 py-6 text-paper md:px-12"><div class="mx-auto flex max-w-[1200px] items-center justify-between gap-4 text-[11px] leading-none text-paper/55 sm:text-[12px]"><p class="whitespace-nowrap">Copyright © 2026 青蛙王子童装 FrogPrince All Rights Reserved</p><a class="whitespace-nowrap transition-colors hover:text-paper" href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">沪ICP备20007378号-9</a></div></footer>
   </main>
 </template>
 

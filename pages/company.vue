@@ -14,6 +14,13 @@ useHead({
 })
 const {url: assetUrl} = await useWebsiteAssets('company')
 
+const profileImages = computed(() => [1, 2, 3].map(index =>
+    assetUrl(`profile-${index}`, `/static/company/gallery/profile-${index}.jpg`)
+))
+const historyImages = computed(() => [1, 2, 3].map(index =>
+    assetUrl(`history-${index}`, `/static/company/gallery/history-${index}.jpg`)
+))
+
 const milestones = [
   {year: '1991', title: '从制造出发', text: '上海蛙品儿童用品有限公司前身东方制衣厂成立，产品随后出口东南亚。'},
   {year: '1990s', title: '品牌进入市场', text: '注册青蛙王子、青蛙皇子品牌，开设首家品牌专卖店，产品覆盖中国内地。'},
@@ -83,7 +90,7 @@ onUnmounted(() => animationContext?.revert())
     </section>
 
     <section class="mx-auto w-full max-w-[1200px] px-6 py-20 md:px-8 md:py-32">
-      <div class="company-fade grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+      <div class="company-fade grid gap-12 lg:grid-cols-[0.7fr_1fr_0.62fr] lg:gap-12 xl:gap-16">
         <div>
           <span class="mb-3 block text-[12px] text-smoke">01 — Who We Are</span>
           <h2 class="text-heading-lg font-light tracking-heading-tight">从佛山出发，<br>向更广阔的未来。</h2>
@@ -95,6 +102,16 @@ onUnmounted(() => animationContext?.revert())
             青蛙王子持续拓展全国渠道，门店覆盖28个省份，总数超过1200家，形成由街铺、购物中心、百货、商超与奥特莱斯共同组成的多层次商业网络。</p>
           <p class="border-l border-ember pl-5 font-serif text-[18px] italic leading-[1.55] text-pewter">
             让好设计进入更多家庭，让孩子在自在穿着中探索每天的新鲜世界。</p>
+        </div>
+        <div class="grid gap-2 self-stretch">
+          <img
+              v-for="(image, index) in profileImages"
+              :key="image"
+              :src="image"
+              :alt="`青蛙王子冬季童装形象 ${index + 1}`"
+              class="h-full min-h-[190px] w-full object-cover"
+              loading="lazy"
+          >
         </div>
       </div>
 
@@ -109,7 +126,16 @@ onUnmounted(() => animationContext?.revert())
 
     <section id="journey" class="bg-char text-paper">
       <div class="mx-auto grid max-w-[1440px] lg:grid-cols-[0.8fr_1.2fr]">
-        <div class="company-history-image min-h-[480px] bg-cover bg-center lg:min-h-full" :style="{backgroundImage: `url('${assetUrl('history', '/static/pic/5.png')}')`}"/>
+        <div class="grid min-h-[560px] gap-2 p-2 lg:min-h-full">
+          <img
+              v-for="(image, index) in historyImages"
+              :key="image"
+              :src="image"
+              :alt="`青蛙王子成长形象 ${index + 1}`"
+              class="h-full min-h-[220px] w-full object-cover"
+              loading="lazy"
+          >
+        </div>
         <div class="company-fade px-6 py-20 md:px-16 lg:px-20 lg:py-24">
           <span class="mb-3 block text-[12px] text-paper/50">02 — Our Journey</span>
           <h2 class="mb-14 text-heading-lg font-light tracking-heading-tight">一段持续生长的<br>品牌旅程。</h2>
@@ -145,7 +171,7 @@ onUnmounted(() => animationContext?.revert())
           class="mx-auto flex max-w-[1200px] items-center justify-between gap-4 text-[11px] leading-none text-paper/55 sm:text-[12px]">
         <p class="whitespace-nowrap">Copyright © 2026 青蛙王子童装 FrogPrince All Rights Reserved</p>
         <a class="whitespace-nowrap transition-colors hover:text-paper" href="https://beian.miit.gov.cn" rel="noopener noreferrer"
-           target="_blank">沪ICP备20007378号-1</a>
+           target="_blank">沪ICP备20007378号-9</a>
       </div>
     </footer>
   </main>

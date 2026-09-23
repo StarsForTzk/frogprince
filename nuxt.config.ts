@@ -20,10 +20,26 @@ export default defineNuxtConfig({
                 {
                     name: 'keywords',
                     content: '青蛙王子童装,青蛙王子,FROG PRINCE,儿童服饰,儿童服装,童装品牌'
-                }
+                },
+                {property: 'og:type', content: 'website'},
+                {property: 'og:site_name', content: '青蛙王子童装'},
+                {property: 'og:title', content: '青蛙王子童装 | FROG PRINCE'},
+                {
+                    property: 'og:description',
+                    content: '青蛙王子童装专注儿童服饰，以舒适、安全、品质与设计为核心，为孩子提供覆盖春夏秋冬及新年场景的童装产品。'
+                },
+                {property: 'og:url', content: 'https://www.frogprince.cn/'},
+                {property: 'og:image', content: 'https://www.frogprince.cn/static/ico/share-logo.png'},
+                {property: 'og:image:type', content: 'image/png'},
+                {property: 'og:image:width', content: '512'},
+                {property: 'og:image:height', content: '512'},
+                {property: 'og:image:alt', content: '青蛙王子童装品牌标志'},
+                {name: 'twitter:card', content: 'summary'},
+                {name: 'twitter:image', content: 'https://www.frogprince.cn/static/ico/share-logo.png'}
             ],
             link: [
-                {rel: 'icon', type: 'image/svg+xml', href: '/static/ico/logo.svg'},
+                {rel: 'icon', type: 'image/png', sizes: '512x512', href: '/static/ico/share-logo.png'},
+                {rel: 'apple-touch-icon', sizes: '512x512', href: '/static/ico/share-logo.png'},
                 {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
                 {
                     rel: 'stylesheet',

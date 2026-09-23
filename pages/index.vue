@@ -382,7 +382,7 @@ function changeCollectionImage(direction: number) {
             href="https://beian.miit.gov.cn"
             rel="noopener noreferrer"
             target="_blank"
-            >沪ICP备20007378号-1</a
+            >沪ICP备20007378号-9</a
           >
         </div>
       </div>

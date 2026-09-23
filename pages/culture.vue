@@ -125,7 +125,7 @@ onUnmounted(() => animationContext?.revert())
           class="mx-auto flex max-w-[1200px] items-center justify-between gap-4 text-[11px] leading-none text-paper/55 sm:text-[12px]">
         <p class="whitespace-nowrap">Copyright © 2026 青蛙王子童装 FrogPrince All Rights Reserved</p><a
           class="whitespace-nowrap transition-colors hover:text-paper" href="https://beian.miit.gov.cn" rel="noopener noreferrer"
-          target="_blank">沪ICP备20007378号-1</a></div>
+          target="_blank">沪ICP备20007378号-9</a></div>
     </footer>
   </main>
 </template>

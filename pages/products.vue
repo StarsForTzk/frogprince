@@ -6,9 +6,9 @@ useHead({
 const {url: assetUrl} = await useWebsiteAssets('products')
 
 const ranges = computed(() => [
-  { id: "baby", age: "0–3 YEARS", name: "婴童", english: "BABY", image: "/static/pic/1.png", text: "采用天然、环保、舒适的面辅料，关注低龄儿童的活动需要与贴身体验，给予成长初期更细致的呵护。" },
-  { id: "kids", age: "3–7 YEARS", name: "幼小童", english: "KIDS", image: "/static/pic/2.png", text: "强调产品品质与儿童美学陪伴，让舒适廓形适应探索、游戏与日常出行，释放孩子爱玩的天性。" },
-  { id: "young", age: "7–14 YEARS", name: "中大童", english: "YOUNG", image: "/static/pic/3.png", text: "以潮范、时尚、多元的设计回应校园、户外与社交场景，鼓励孩子阳光、自信地表达自己的风格。" },
+  { id: "baby", age: "0–3 YEARS", name: "婴童", english: "BABY", image: "/static/products/baby.jpg", text: "采用天然、环保、舒适的面辅料，关注低龄儿童的活动需要与贴身体验，给予成长初期更细致的呵护。" },
+  { id: "kids", age: "3–7 YEARS", name: "幼小童", english: "KIDS", image: "/static/products/kids.jpg", text: "强调产品品质与儿童美学陪伴，让舒适廓形适应探索、游戏与日常出行，释放孩子爱玩的天性。" },
+  { id: "young", age: "7–14 YEARS", name: "中大童", english: "YOUNG", image: "/static/products/young.jpg", text: "以潮范、时尚、多元的设计回应校园、户外与社交场景，鼓励孩子阳光、自信地表达自己的风格。" },
 ].map(range => ({...range, image: assetUrl(range.id, range.image)})))
 
 const categories = ["T恤", "卫衣", "衬衫", "毛衫", "外套", "裤装", "裙装", "套装", "羽绒服", "鞋品", "家居", "配饰"]
@@ -27,7 +27,7 @@ const priceRanges = [
     </NuxtLink>
 
     <section class="products-hero relative flex h-[82vh] min-h-[620px] max-h-[900px] flex-col justify-between overflow-hidden p-6 text-paper md:p-12">
-      <div class="absolute inset-0 bg-cover bg-center" :style="{backgroundImage: `url('${assetUrl('hero', '/static/pic/4.png')}')`}" />
+      <div class="absolute inset-0 bg-cover bg-center" :style="{backgroundImage: `url('${assetUrl('hero', '/static/products/hero-wide.jpg')}')`}" />
       <NuxtLink class="relative z-10 inline-flex w-fit" to="/"><img alt="青蛙王子童装" class="h-auto w-[132px] brightness-0 invert md:w-[176px]" src="/static/pic/logo.png"></NuxtLink>
       <div class="relative z-10"><p class="mb-4 text-[12px] text-paper/75">Products — 0 to 14 Years</p><h1 class="text-[54px] font-light uppercase leading-[0.88] sm:text-[82px] lg:text-[116px]">Made For<br>Every Age</h1></div>
     </section>
