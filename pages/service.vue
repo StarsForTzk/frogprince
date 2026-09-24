@@ -1,11 +1,11 @@
-<script setup lang="ts">
-import { onMounted, onUnmounted } from "vue"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+<script lang="ts" setup>
+import {onMounted, onUnmounted} from "vue"
+import {gsap} from "gsap"
+import {ScrollTrigger} from "gsap/ScrollTrigger"
 
 useHead({
   title: "售后服务 | 青蛙王子童装",
-  meta: [{ name: "description", content: "青蛙王子童装售后服务与退换货规定。" }],
+  meta: [{name: "description", content: "青蛙王子童装售后服务与退换货规定。"}],
 })
 
 const restrictions = [
@@ -29,9 +29,15 @@ let animationContext: gsap.Context | undefined
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
   animationContext = gsap.context(() => {
-    gsap.from(".service-nav", { y: -20, opacity: 0, duration: 1, ease: "power2.out" })
+    gsap.from(".service-nav", {y: -20, opacity: 0, duration: 1, ease: "power2.out"})
     gsap.utils.toArray<HTMLElement>(".service-fade").forEach((element) => {
-      gsap.from(element, { scrollTrigger: { trigger: element, start: "top 88%" }, y: 22, opacity: 0, duration: 0.9, ease: "power2.out" })
+      gsap.from(element, {
+        scrollTrigger: {trigger: element, start: "top 88%"},
+        y: 22,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power2.out"
+      })
     })
   })
 })
@@ -42,33 +48,118 @@ onUnmounted(() => animationContext?.revert())
   <main class="bg-paper text-ink font-sans tracking-body-loose antialiased">
     <header class="border-b border-mist px-6 py-6 md:px-12 md:py-8">
       <div class="service-nav mx-auto flex max-w-[1200px] items-center justify-between gap-6">
-        <NuxtLink class="inline-flex" to="/"><img alt="青蛙王子童装" class="h-auto w-[132px] md:w-[176px]" src="/static/pic/logo.png"></NuxtLink>
-        <NuxtLink to="/" class="inline-flex items-center gap-2 text-[13px] text-pewter transition-colors hover:text-ember"><span aria-hidden="true">←</span> 返回首页</NuxtLink>
+        <NuxtLink class="inline-flex" to="/"><img alt="青蛙王子童装" class="h-auto w-[132px] md:w-[176px]"
+                                                  src="/static/pic/logo.png"></NuxtLink>
+        <NuxtLink class="inline-flex items-center gap-2 text-[13px] text-pewter transition-colors hover:text-ember"
+                  to="/">
+          <span aria-hidden="true">←</span> 返回首页
+        </NuxtLink>
       </div>
     </header>
 
     <section class="mx-auto w-full max-w-[1200px] px-6 py-16 md:px-8 md:py-24">
       <div class="service-fade grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-end lg:gap-20">
-        <div><span class="mb-3 block text-[12px] text-smoke">Frog Service — Customer Care</span><h1 class="text-[58px] font-light leading-[0.9] tracking-heading-tight md:text-[88px]">售后<br>服务</h1></div>
-        <div class="border-l-2 border-ember pl-6 md:pl-8"><p class="text-[15px] leading-[1.7] text-pewter">如果您对产品有任何问题，欢迎拨打消费者 7×24 小时服务热线：</p><a href="tel:4000418883" class="mt-4 block text-[34px] font-light tracking-heading-tight transition-colors hover:text-ember md:text-[46px]">400-041-8883</a></div>
+        <div><span class="mb-3 block text-[12px] text-smoke">Frog Service — Customer Care</span>
+          <h1 class="text-[58px] font-light leading-[0.9] tracking-heading-tight md:text-[88px]">售后<br>服务</h1></div>
+        <div class="border-l-2 border-ember pl-6 md:pl-8"><p class="text-[15px] leading-[1.7] text-pewter">
+          如果您对产品有任何问题，欢迎拨打消费者 7×24 小时服务热线：</p><a class="mt-4 block text-[34px] font-light tracking-heading-tight transition-colors hover:text-ember md:text-[46px]"
+                                                                         href="tel:4000418883">400-041-8883</a>
+        </div>
       </div>
-      <nav aria-label="售后服务目录" class="service-fade mt-16 flex flex-wrap gap-x-7 gap-y-3 border-t border-mist pt-5 text-[13px] text-pewter md:mt-24"><a href="#return" class="transition-colors hover:text-ember">01 / 7天无理由退货</a><a href="#exchange" class="transition-colors hover:text-ember">02 / 15天无理由换货</a><a href="#excluded" class="transition-colors hover:text-ember">03 / 不支持情形</a><a href="#rules" class="transition-colors hover:text-ember">04 / 其它规定</a></nav>
+      <nav aria-label="售后服务目录"
+           class="service-fade mt-16 flex flex-wrap gap-x-7 gap-y-3 border-t border-mist pt-5 text-[13px] text-pewter md:mt-24">
+        <a class="transition-colors hover:text-ember" href="#return">01 / 7天无理由退货</a><a class="transition-colors hover:text-ember"
+                                                                                              href="#exchange">02
+        / 15天无理由换货</a><a class="transition-colors hover:text-ember" href="#excluded">03 / 不支持情形</a><a
+          class="transition-colors hover:text-ember" href="#rules">04 / 其它规定</a></nav>
     </section>
 
-    <section id="return" class="border-y border-mist bg-mist/40"><div class="service-fade mx-auto grid max-w-[1200px] gap-10 px-6 py-16 md:px-8 md:py-24 lg:grid-cols-[260px_1fr] lg:gap-20"><div><span class="block text-[12px] text-smoke">01 — Return</span><h2 class="mt-3 text-[34px] font-light tracking-heading-tight">7天无理由<br>退货</h2></div><div class="max-w-[700px] text-[15px] leading-[1.8]"><p>商品自售出之日起7天内，在不影响2次销售的前提下，可提供“7天无理由退货”服务。</p><p class="mt-7 font-medium">退货时，店铺应收回赠送顾客的礼品、礼券、VIP卡返利等，以及取消相应的积分。如无法退回所赠的相关礼品，需扣除所赠相关礼品的价格后，再按消费者购买时的付款方式予以退货退款处理。</p><div class="mt-10 border-t border-ink/15 pt-6"><h3 class="text-[18px]">退货的条件</h3><p class="mt-3 text-pewter">商品需保持原质原貌、吊牌标识齐全、不脏、不残、不影响2次销售，7天内顾客凭销售小票可回原购买店铺进行退货。</p></div></div></div></section>
+    <section id="return" class="border-y border-mist bg-mist/40">
+      <div
+          class="service-fade mx-auto grid max-w-[1200px] gap-10 px-6 py-16 md:px-8 md:py-24 lg:grid-cols-[260px_1fr] lg:gap-20">
+        <div><span class="block text-[12px] text-smoke">01 — Return</span>
+          <h2 class="mt-3 text-[34px] font-light tracking-heading-tight">7天无理由<br>退货</h2></div>
+        <div class="max-w-[700px] text-[15px] leading-[1.8]"><p>
+          商品自售出之日起7天内，在不影响2次销售的前提下，可提供“7天无理由退货”服务。</p>
+          <p class="mt-7 font-medium">
+            退货时，店铺应收回赠送顾客的礼品、礼券、VIP卡返利等，以及取消相应的积分。如无法退回所赠的相关礼品，需扣除所赠相关礼品的价格后，再按消费者购买时的付款方式予以退货退款处理。</p>
+          <div class="mt-10 border-t border-ink/15 pt-6"><h3 class="text-[18px]">退货的条件</h3>
+            <p class="mt-3 text-pewter">
+              商品需保持原质原貌、吊牌标识齐全、不脏、不残、不影响2次销售，7天内顾客凭销售小票可回原购买店铺进行退货。</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section id="exchange" class="mx-auto w-full max-w-[1200px] px-6 py-16 md:px-8 md:py-24"><div class="service-fade grid gap-10 lg:grid-cols-[260px_1fr] lg:gap-20"><div><span class="block text-[12px] text-smoke">02 — Exchange</span><h2 class="mt-3 text-[34px] font-light tracking-heading-tight">15天无理由<br>换货</h2></div><div class="grid gap-12 md:grid-cols-2"><div class="border-t border-mist pt-6"><h3 class="text-[20px] font-normal">换款</h3><p class="mt-5 text-[15px] leading-[1.8] text-pewter">商品自售出之日起15天内，在不影响2次销售的前提下，可提供“15天无理由换货”服务。</p><p class="mt-5 text-[13px] leading-[1.7]">商品需保持原质原貌、吊牌标识齐全、不脏、不残、不影响2次销售，15天内顾客凭销售小票可回原购买店铺更换款式，存在价格差异，需补齐差价。</p></div><div class="border-t border-mist pt-6"><h3 class="text-[20px] font-normal">换码 / 颜色</h3><p class="mt-5 text-[15px] leading-[1.8] text-pewter">商品自售出之日起15天内，在不影响2次销售的前提下，可提供“15天无理由换码/颜色”服务。在所需当地（城市）码数没有的情况下，可由公司客服部与大区支持部及商品部协商调货。</p><p class="mt-5 text-[13px] leading-[1.7]">商品需保持原质原貌、吊牌标识齐全、不脏、不残、不影响2次销售，15天内顾客凭销售小票可在全国青蛙皇子/青蛙小皇子专柜更换对应码数与颜色。</p></div></div></div></section>
+    <section id="exchange" class="mx-auto w-full max-w-[1200px] px-6 py-16 md:px-8 md:py-24">
+      <div class="service-fade grid gap-10 lg:grid-cols-[260px_1fr] lg:gap-20">
+        <div><span class="block text-[12px] text-smoke">02 — Exchange</span>
+          <h2 class="mt-3 text-[34px] font-light tracking-heading-tight">15天无理由<br>换货</h2></div>
+        <div class="grid gap-12 md:grid-cols-2">
+          <div class="border-t border-mist pt-6"><h3 class="text-[20px] font-normal">换款</h3>
+            <p class="mt-5 text-[15px] leading-[1.8] text-pewter">
+              商品自售出之日起15天内，在不影响2次销售的前提下，可提供“15天无理由换货”服务。</p>
+            <p class="mt-5 text-[13px] leading-[1.7]">
+              商品需保持原质原貌、吊牌标识齐全、不脏、不残、不影响2次销售，15天内顾客凭销售小票可回原购买店铺更换款式，存在价格差异，需补齐差价。</p>
+          </div>
+          <div class="border-t border-mist pt-6"><h3 class="text-[20px] font-normal">换码 / 颜色</h3>
+            <p class="mt-5 text-[15px] leading-[1.8] text-pewter">
+              商品自售出之日起15天内，在不影响2次销售的前提下，可提供“15天无理由换码/颜色”服务。在所需当地（城市）码数没有的情况下，可由公司客服部与大区支持部及商品部协商调货。</p>
+            <p class="mt-5 text-[13px] leading-[1.7]">
+              商品需保持原质原貌、吊牌标识齐全、不脏、不残、不影响2次销售，15天内顾客凭销售小票可在全国青蛙皇子/青蛙小皇子专柜更换对应码数与颜色。</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section id="excluded" class="bg-char text-paper"><div class="service-fade mx-auto max-w-[1200px] px-6 py-16 md:px-8 md:py-24"><span class="block text-[12px] text-paper/50">03 — Exclusions</span><div class="mt-3 grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-20"><h2 class="text-[38px] font-light leading-[1.05] tracking-heading-tight md:text-[52px]">以下情况，<br>不支持退换货服务。</h2><ol class="border-t border-paper/20"><li v-for="(item, index) in restrictions" :key="item" class="grid grid-cols-[30px_1fr] gap-4 border-b border-paper/20 py-5 text-[14px] leading-[1.7] text-paper/75"><span class="text-paper/40">{{ index + 1 }}</span><span>{{ item }}</span></li></ol></div></div></section>
+    <section id="excluded" class="bg-char text-paper">
+      <div class="service-fade mx-auto max-w-[1200px] px-6 py-16 md:px-8 md:py-24"><span
+          class="block text-[12px] text-paper/50">03 — Exclusions</span>
+        <div class="mt-3 grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-20"><h2
+            class="text-[38px] font-light leading-[1.05] tracking-heading-tight md:text-[52px]">以下情况，<br>不支持退换货服务。
+        </h2>
+          <ol class="border-t border-paper/20">
+            <li v-for="(item, index) in restrictions" :key="item"
+                class="grid grid-cols-[30px_1fr] gap-4 border-b border-paper/20 py-5 text-[14px] leading-[1.7] text-paper/75">
+              <span class="text-paper/40">{{ index + 1 }}</span><span>{{ item }}</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
 
-    <section id="rules" class="mx-auto w-full max-w-[1200px] px-6 py-16 md:px-8 md:py-24"><div class="service-fade grid gap-10 lg:grid-cols-[260px_1fr] lg:gap-20"><div><span class="block text-[12px] text-smoke">04 — Other Rules</span><h2 class="mt-3 text-[34px] font-light tracking-heading-tight">其它规定<br>说明</h2></div><ol class="border-t border-mist"><li v-for="(rule, index) in otherRules" :key="rule" class="grid grid-cols-[30px_1fr] gap-4 border-b border-mist py-5 text-[14px] leading-[1.75] text-pewter"><span class="text-smoke">{{ index + 1 }}</span><span>{{ rule }}</span></li></ol></div></section>
+    <section id="rules" class="mx-auto w-full max-w-[1200px] px-6 py-16 md:px-8 md:py-24">
+      <div class="service-fade grid gap-10 lg:grid-cols-[260px_1fr] lg:gap-20">
+        <div><span class="block text-[12px] text-smoke">04 — Other Rules</span>
+          <h2 class="mt-3 text-[34px] font-light tracking-heading-tight">其它规定<br>说明</h2></div>
+        <ol class="border-t border-mist">
+          <li v-for="(rule, index) in otherRules" :key="rule"
+              class="grid grid-cols-[30px_1fr] gap-4 border-b border-mist py-5 text-[14px] leading-[1.75] text-pewter">
+            <span class="text-smoke">{{ index + 1 }}</span><span>{{ rule }}</span></li>
+        </ol>
+      </div>
+    </section>
 
-    <section class="border-t border-mist bg-mist/50 px-6 py-12 md:px-8 md:py-16"><div class="service-fade mx-auto flex max-w-[1200px] flex-col gap-4 text-[14px] leading-[1.7] text-pewter md:flex-row md:items-start md:justify-between"><p>本规定适用于全国青蛙王子童装实体店铺。</p><p class="md:text-right">可凭原购物小票至全国青蛙王子童装店铺直接进行更换。</p></div></section>
+    <section class="border-t border-mist bg-mist/50 px-6 py-12 md:px-8 md:py-16">
+      <div
+          class="service-fade mx-auto flex max-w-[1200px] flex-col gap-4 text-[14px] leading-[1.7] text-pewter md:flex-row md:items-start md:justify-between">
+        <p>本规定适用于全国青蛙王子童装实体店铺。</p>
+        <p class="md:text-right">可凭原购物小票至全国青蛙王子童装店铺直接进行更换。</p></div>
+    </section>
 
-    <footer class="border-t border-mist bg-char px-6 py-6 text-paper md:px-12"><div class="mx-auto flex max-w-[1200px] items-center justify-between gap-4 text-[11px] leading-none text-paper/55 sm:text-[12px]"><p class="whitespace-nowrap">Copyright © 2026 青蛙王子童装 FrogPrince All Rights Reserved</p><a class="whitespace-nowrap transition-colors hover:text-paper" href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">沪ICP备20007378号-9</a></div></footer>
+    <footer class="border-t border-mist bg-char px-6 py-6 text-paper md:px-12">
+      <div
+          class="mx-auto flex max-w-[1200px] items-center justify-between gap-4 text-[11px] leading-none text-paper/55 sm:text-[12px]">
+        <p class="whitespace-nowrap">Copyright © 2026 青蛙王子童装 FrogPrince All Rights Reserved</p><a
+          class="whitespace-nowrap transition-colors hover:text-paper" href="https://beian.miit.gov.cn" rel="noopener noreferrer"
+          target="_blank">沪ICP备20007378号-9</a></div>
+    </footer>
   </main>
 </template>
 
 <style scoped>
-@media (max-width: 640px) { main { overflow-x: hidden; } }
+@media (max-width: 640px) {
+  main {
+    overflow-x: hidden;
+  }
+}
 </style>
